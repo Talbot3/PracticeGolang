@@ -17,6 +17,15 @@ build : clean setup
 	cd bin && \
 	$(GO) build $(SRC)/main.go
 	echo "success"
+
+run : clean setup
+	echo "running";
+	export GOPATH=$(GOPATH) && \
+	mkdir bin && \
+	cd bin && \
+	$(GO) build $(SRC)/main.go
+	bin/main
+	echo "success"
 clean :
 	rm -rf bin
 test :
