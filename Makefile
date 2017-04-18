@@ -30,7 +30,7 @@ clean :
 	rm -rf bin
 test :
 	export GOPATH=$(GOPATH) && \
-	go test -v  simplemath
+	$(GO) test -ttimeout=30s  ./...
 
 .PHONY: setup
 setup:
