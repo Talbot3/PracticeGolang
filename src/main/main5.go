@@ -1,18 +1,19 @@
 package main
 
-import "fmt"
-
+import (
+	"fmt"
+	"reflect"
+)
 func main() {
-	makeMap()
+	NewMap()
 }
 
 // makeSlice 创建切片
 func makeSlice() {
-	mSlice := make([]string, 3);
+	mSlice := make([]string, 3)
 	mSlice[0] = "dog"
 	mSlice[1] = "cat"
 	mSlice[2] = "tiger"
-
 	fmt.Println(mSlice)
 }
 
@@ -22,4 +23,15 @@ func makeMap() {
 	mMap[10] = "dog"
 	mMap[100] = "cat"
 	fmt.Println(mMap)
+}
+
+// makeChan 创建没有缓存的chan
+func makeChan() {
+	mChan := make(chan int)
+	close(mChan)
+}
+
+func NewMap() {
+	mMap := new(map[int]string)
+	fmt.Println(reflect.Typeof(mMap))
 }
