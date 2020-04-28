@@ -1,7 +1,7 @@
 GOPATH := $(shell pwd)
 GOROOT := /Users/Arthur/.g/go
 GO := $(GOROOT)/bin/go
-SRC := $(GOPATH)/src/main
+SRC := $(GOPATH)/src
 GOBIN := $(GOPATH)/bin
 
 .PHONY: all

@@ -18,6 +18,12 @@ make build
 
 ## 根据个人开发环境`go env`更改配置 `GOROOT`
 
+```bash
+#macosx
+GOROOT := /Users/:username/.g/go
 ```
-GOROOT := /Users/Arthur/.g/go
-```
+
+## 引用 
+
+- [Go语言圣经](https://books.studygolang.com/gopl-zh/)
+- [using-go-modules](https://blog.golang.org/using-go-modules)

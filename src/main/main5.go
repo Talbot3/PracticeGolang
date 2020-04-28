@@ -5,7 +5,7 @@ import (
 	"reflect"
 )
 func main() {
-	NewMap()
+	copyForSlice()
 }
 
 // makeSlice 创建切片
@@ -32,6 +32,33 @@ func makeChan() {
 }
 
 func NewMap() {
-	mMap := new(map[int]string)
-	fmt.Println(reflect.Typeof(mMap))
+	mNewMap := new(map[int]string)
+	mMakeMap := make(map[int]string)
+	t := reflect.TypeOf(mNewMap)
+	t1:= reflect.TypeOf(mMakeMap)
+	fmt.Println("new map :", t)
+	fmt.Println("new make:", t1)
+}
+
+func appendElementForSlice() {
+	mIDSlice := make([]string, 3)
+	mIDSlice[0] = "id-1"
+	mIDSlice = append(mIDSlice, "id-2")
+	fmt.Println(mIDSlice)
+	fmt.Println(len(mIDSlice))
+	fmt.Println(cap(mIDSlice))
+}
+
+func copyForSlice() {
+	mIDSliceDst := make([]string, 3)
+	mIDSliceDst[0] = "id-1-dst"
+	mIDSliceDst = append(mIDSliceDst, "id-2-dst")
+
+
+	mIDSliceSrc := make([]string, 3)
+	mIDSliceSrc[0] = "id-1-src"
+	mIDSliceSrc = append(mIDSliceSrc, "id-2-src")
+
+	copy(mIDSliceSrc, mIDSliceDst);
+	fmt.Println("src",mIDSliceSrc, "dst", mIDSliceDst);
 }
