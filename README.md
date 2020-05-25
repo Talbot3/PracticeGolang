@@ -23,6 +23,11 @@ make build
 GOROOT := /Users/:username/.g/go
 ```
 
+## Go Modules
+
+- fswatch
+- hello
+
 ## 引用 
 
 - [Go语言圣经](https://books.studygolang.com/gopl-zh/)
