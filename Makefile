@@ -12,15 +12,13 @@ all: build
 
 build : clean setup
 	echo "building";
-	export GOPATH=$(GOPATH) && \
 	mkdir bin && \
 	cd bin && \
-	$(GO) build $(SRC)/main.go
+	$(GO) build $(SRC)/main/main.go
 	echo "success"
 
 run : clean setup
 	echo "running";
-	export GOPATH=$(GOPATH) && \
 	mkdir bin && \
 	cd bin && \
 	$(GO) build $(SRC)/main.go
@@ -28,12 +26,9 @@ run : clean setup
 	echo "success"
 clean :
 	rm -rf bin
-test :
-	export GOPATH=$(GOPATH) && \
+test : setup
 	$(GO) test -ttimeout=30s  ./...
 
 .PHONY: setup
 setup:
-	export GOROOT=$(GOROOT)
-	export GOBIN=$GOPATH/bin
-	export PATH=$PATH:$GOBIN
+	export GOPATH=$(GOPATH)
