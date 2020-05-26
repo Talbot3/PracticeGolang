@@ -1,4 +1,6 @@
-# Env
+# golang 练习项目
+
+## Env
 go env
 
 ## Golang install by [`g`](https://github.com/voidint/g)
@@ -14,6 +16,7 @@ function
 ```bash
 cd packages/xx
 go build
+# go run .
 ```
 
 ## Go Modules
@@ -40,3 +43,5 @@ go mod tidy 删除未使用的依赖项。
 
 - [Go语言圣经](https://books.studygolang.com/gopl-zh/)
 - [using-go-modules](https://blog.golang.org/using-go-modules)
+- [golang-package](https://studygolang.com/articles/5831)
+- [Golang Package 与 Module 简介](https://www.jianshu.com/p/07ffc5827b26)
