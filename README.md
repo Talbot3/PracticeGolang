@@ -11,15 +11,9 @@ function
 
 ## Run
 
+```bash
 cd packages/xx
 go build
-
-
-## 根据个人开发环境`go env`更改配置 `GOROOT`
-
-```bash
-#macosx
-GOROOT := /Users/:username/.g/go
 ```
 
 ## Go Modules
