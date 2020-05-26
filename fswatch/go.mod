@@ -1,4 +1,4 @@
-module talbot3/fswatch
+module template/fswatch
 
 go 1.14
 

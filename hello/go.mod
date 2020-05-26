@@ -1,4 +1,4 @@
-module example.com/demo-golang
+module template/demo-golang
 
 go 1.14
 
