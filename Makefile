@@ -14,7 +14,7 @@ build : clean setup
 	echo "building";
 	mkdir bin && \
 	cd bin && \
-	$(GO) build $(SRC)/main/clock1.go
+	$(GO) build $(SRC)/main/webserver.go
 	echo "success"
 
 run : clean setup
