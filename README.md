@@ -9,12 +9,11 @@ function
 * 1.default directory
 * 2.default makefile
 
-## run
+## Run
 
-```
-make build
-./build/main add 5 5
-```
+cd packages/xx
+go build
+
 
 ## 根据个人开发环境`go env`更改配置 `GOROOT`
 
