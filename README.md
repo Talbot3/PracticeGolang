@@ -45,3 +45,4 @@ go mod tidy 删除未使用的依赖项。
 - [using-go-modules](https://blog.golang.org/using-go-modules)
 - [golang-package](https://studygolang.com/articles/5831)
 - [Golang Package 与 Module 简介](https://www.jianshu.com/p/07ffc5827b26)
+- [Go 指南](https://tour.go-zh.org/basics/1)
