@@ -1,5 +1,5 @@
 # golang 练习项目
-
+> 在使用Nodejs过程中，发现了Js层面无法解决的问题。选择了语言，同时也选择了生态和场景。不要为了语言而选择语言，而是为了提高效率而选择语言。掌握二门主力编程语言，可以扩大信息技术在不同场景的适应性。掌握更多的编程语言，可能会精力时间不够，为了学语言而学习语言，就有点本未倒置了。
 ## Env
 go env
 
@@ -46,3 +46,4 @@ go mod tidy 删除未使用的依赖项。
 - [golang-package](https://studygolang.com/articles/5831)
 - [Golang Package 与 Module 简介](https://www.jianshu.com/p/07ffc5827b26)
 - [Go 指南](https://tour.go-zh.org/basics/1)
+- 《Go语言并发之道》
