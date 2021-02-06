@@ -52,3 +52,79 @@ func main() {
 	go func() {}()
 }
 ```
+
+### goruntine使用的内在大小
+
+```golang
+package main
+import (
+	"runtime"
+	"sync"
+	"fmt"
+)
+func main() {
+	var memConsumed = func() uint64 {
+		runtime.GC()
+		var s runtime.MemStats
+		runtime.ReadMemStats(&s)
+		return s.Sys
+	}
+
+	var c <-chan interface{}
+	var wg sync.WaitGroup
+	noop := func() {wg.Done(); <-c }
+	const numGoroutines = 1e4
+	wg.Add(numGoroutines)
+	before := memConsumed()
+	for i := numGoroutines; i > 0; i-- {
+		go noop()
+	}
+	wg.Wait()
+	after := memConsumed()
+	fmt.Printf("%.3fkb", float64(after-before)/numGoroutines/1000)
+}
+```
+
+### goroutine切勿需要的时长
+```bash
+go test -bench=. -cpu=4 ./ctx-switch_test.go
+BenchmarkContextSwitch-4         4840045               227 ns/op
+```
+
+```golang
+package gocsp;
+
+import (
+	"sync"
+	"testing"
+)
+func BenchmarkContextSwitch(b *testing.B) {
+	var wg sync.WaitGroup
+	begin :=make(chan struct{})
+	c := make(chan struct{})
+
+	var token struct{}
+	sender := func() {
+		defer wg.Done()
+		<-begin
+		for i := 0; i < b.N; i++ {
+			c <-token
+		}
+	}
+
+	receiver := func() {
+		defer wg.Done()
+		<-begin
+		for i := 0; i < b.N; i++ {
+			<-c
+		}
+	}
+
+	wg.Add(2)
+	go sender()
+	go receiver()
+	b.StartTimer()
+	close(begin)
+	wg.Wait()
+}
+```
