@@ -28,4 +28,8 @@ func main() {
 		fmt.Printf(" %d:%d ", i, v)
 	}
 
+	var b1 = [...]int{1: 1, 3: 2, 4: 3}
+	for i1, v1 := range b1 {
+		fmt.Println(i1, v1)
+	}
 }
