@@ -1,6 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unicode/utf8"
+)
+
+func str2runes(s []byte) []rune {
+	var p []int32
+	for len(s) > 0 {
+		r, size := utf8.DecodeRune(s)
+		p = append(p, int32(r))
+		s = s[size:]
+	}
+	return []rune(p)
+}
 
 func main() {
 	var (
@@ -32,4 +45,19 @@ func main() {
 	for i1, v1 := range b1 {
 		fmt.Println(i1, v1)
 	}
+
+	// 函数数组
+	// var decoder1 = [2]func(io.Reader){image.Image, error}
+
+	fmt.Printf("%#v\n", []rune("世界"))
+	z := "hello, world"
+	hello := z[:5]
+	world := z[7:]
+	fmt.Printf("%s\n%s\n", hello, world)
+	r, size := utf8.DecodeRune([]byte(z))
+	fmt.Println(r, size)
+	fmt.Printf("%#v \n", []byte(z))
+
+	strArr := str2runes([]byte(z))
+	fmt.Println(strArr)
 }
