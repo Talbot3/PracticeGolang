@@ -28,7 +28,7 @@ func main() {
 	})
 
 	http.HandleFunc("/issues", func(writer http.ResponseWriter, request *http.Request) {
-		result, _ := github.SearchIssues([]string{"a", "b"})
+		result, _ := github.SearchIssues([]string{"repo:golang/go", "is:open", "json decoder"})
 		var data, _ = json.MarshalIndent(result, "", "    ")
 		var dataStr = string(data)
 		fmt.Fprintln(writer, dataStr)
