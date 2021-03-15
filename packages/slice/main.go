@@ -15,6 +15,16 @@ func str2runes(s []byte) []rune {
 	return []rune(p)
 }
 
+func TrimSpace(s []byte) []byte {
+	b := s[:0]
+	for _, x := range s {
+		if x != ' ' {
+			b = append(b, x)
+		}
+	}
+	return b
+}
+
 func main() {
 	var (
 		a []int
@@ -60,4 +70,19 @@ func main() {
 
 	strArr := str2runes([]byte(z))
 	fmt.Println(strArr)
+	strTrimArr := TrimSpace([]byte(z))
+	fmt.Println(strTrimArr)
+
+	q := []int{1, 2, 3, 4, 4}
+	fmt.Println("原始数组 -> ", q)
+	// 数组插入操作
+	q = append(q, 1)
+	copy(q[1:], q[0:])
+	q[0] = 0
+	fmt.Println("添加尾部一个元素", q)
+
+	// 数组删除操作
+	q = q[:len(q)-1]
+	fmt.Println("删除尾部一个元素", q)
+
 }
